@@ -89,9 +89,9 @@ class Trainer:
             Model_checkpoint(path=self.model_checkpoint_dir, metrics=metrics, model=model,
                              monitor='val_acc', verbose=True,
                              file_name=f"best_acc_{total_acc_valid}.pth")
-            Model_checkpoint(path=self.model_checkpoint_dir, metrics=metrics, model=model,
-                             monitor='val_loss', verbose=True,
-                             file_name=f"best_acc_{total_loss_valid}.pth")
+            # Model_checkpoint(path=self.model_checkpoint_dir, metrics=metrics, model=model,
+            #                  monitor='val_loss', verbose=True,
+            #                  file_name=f"best_loss_{total_loss_valid}.pth")
             if early_stopping.Early_Stopping(monitor='val_loss', metrics=metrics, patience=30, verbose=True):
                 break
             print("Epoch:", epoch + 1, "- Train Loss:", total_loss_train, "- Train Accuracy:", total_acc_train,
