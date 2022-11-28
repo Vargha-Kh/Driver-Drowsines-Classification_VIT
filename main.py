@@ -29,12 +29,12 @@ if __name__ == "__main__":
     # Hyper-parameters
     wd = 0.001
     criterion = nn.CrossEntropyLoss()
-    optimizer = AdamW(FER_VT.parameters(), lr=0.001, weight_decay=wd)
+    optimizer = AdamW(FER_VT.parameters(), lr=0.01, weight_decay=wd)
 
     # lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, 200, T_mult=1, eta_min=0.0001,
     #                                                                     last_epoch=- 1, verbose=True)
     # FER_VT.load_state_dict(torch.load('./model/best.pth'))
-    reduce_on_plateau = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=13, verbose=True)
+    reduce_on_plateau = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=12, verbose=True)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.2)
     trainer = Trainer(logdir="./logs", csv_log_dir="./csv_log", model_checkpoint_dir="./model")
     model, optimizer, train_loss, valid_loss = trainer.training(FER_VT, train_loader, val_loader, criterion, optimizer,
