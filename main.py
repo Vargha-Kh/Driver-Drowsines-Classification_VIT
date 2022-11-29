@@ -29,7 +29,7 @@ if __name__ == "__main__":
     # Hyper-parameters
     wd = 0.001
     criterion = nn.CrossEntropyLoss()
-    optimizer = AdamW(FER_VT.parameters(), lr=0.01, weight_decay=wd)
+    optimizer = AdamW(FER_VT.parameters(), lr=0.001, weight_decay=wd)
 
     # lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, 200, T_mult=1, eta_min=0.0001,
     #                                                                     last_epoch=- 1, verbose=True)
