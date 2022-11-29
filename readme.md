@@ -20,14 +20,14 @@ For the training i used AdamW optimizer with 0.01 learning rate and weight decay
 The result of the training was very good with fast convergence.
 
 ### Training accuracy
-![](train_accuracy.svg)
+![](logs/train_accuracy.svg)
 
 ### Training loss
-![](train_loss.svg)
+![](logs/train_loss.svg)
 
 ### validation accuracy
-![](validation_accuracy.svg)
+![](logs/validation_accuracy.svg)
 
 ### validation loss
-![](validation_loss.svg)
+![](logs/validation_loss.svg)
 
